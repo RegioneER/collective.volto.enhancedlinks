@@ -11,7 +11,6 @@ import collective.volto.enhancedlinks
 
 
 class CollectiveVoltoEnhancedlinksLayer(PloneSandboxLayer):
-
     defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
@@ -42,14 +41,4 @@ COLLECTIVE_VOLTO_ENHANCEDLINKS_INTEGRATION_TESTING = IntegrationTesting(
 COLLECTIVE_VOLTO_ENHANCEDLINKS_FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(COLLECTIVE_VOLTO_ENHANCEDLINKS_FIXTURE,),
     name="CollectiveVoltoEnhancedlinksLayer:FunctionalTesting",
-)
-
-
-COLLECTIVE_VOLTO_ENHANCEDLINKS_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        COLLECTIVE_VOLTO_ENHANCEDLINKS_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name="CollectiveVoltoEnhancedlinksLayer:AcceptanceTesting",
 )

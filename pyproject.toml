@@ -6,9 +6,12 @@ requires = ["setuptools>=68.2"]
 
 [tool.towncrier]
 directory = "news/"
-filename = "CHANGES.rst"
-title_format = "{version} ({project_date})"
-underlines = ["-", ""]
+filename = "CHANGES.md"
+start_string = "<!-- towncrier release notes start -->\n"
+title_format = "## {version} ({project_date})"
+template = "news/.changelog_template.jinja"
+underlines = ["", "", ""]
+issue_format = "[#{issue}](https://github.com/RegioneER/collective.volto.enhancedlinks/issues/{issue})"
 
 [[tool.towncrier.type]]
 directory = "breaking"
@@ -71,8 +74,8 @@ target-version = ["py38"]
 ##
 
 [tool.codespell]
-ignore-words-list = "discreet,"
-skip = "*.po,"
+ignore-words-list = "discreet,vew"
+skip = "*.po,*.min.js,*.pot,*.po,*.yaml,*.json"
 ##
 # Add extra configuration options in .meta.toml:
 #  [pyproject]
@@ -119,6 +122,8 @@ Zope = [
   'Products.CMFCore', 'Products.CMFDynamicViewFTI',
 ]
 python-dateutil = ['dateutil']
+ignore-packages = ['plone.restapi', 'plone.volto', 'zestreleaser.towncrier', 'zest.releaser', 'pytest', 'pytest-cov', 'pytest-plone', 'pytest-docker', 'pytest-vcr', 'pytest-mock', 'gocept.pytestlayer', 'requests-mock', 'vcrpy']
+Plone = ['Products.CMFPlone', 'Products.CMFCore', 'Products.GenericSetup', 'Products.PluggableAuthService', 'Products.PlonePAS']
 
 ##
 # Add extra configuration options in .meta.toml:
@@ -138,6 +143,9 @@ ignore = [
     "tox.ini",
     ".flake8",
     "mx.ini",
+    "news/*",
+    "constraints-mxdev.txt",
+    "requirements-mxdev.txt",
 
 ]
 ##
@@ -149,6 +157,12 @@ ignore = [
 #  """
 ##
 
+[tool.coverage.run]
+omit = ["*/locales/*"]
+
+[tool.bandit]
+targets = "src"
+exclude_dirs = ["tests", "src/pas/plugins/oidc/locales"]
 
 ##
 # Add extra configuration options in .meta.toml:
