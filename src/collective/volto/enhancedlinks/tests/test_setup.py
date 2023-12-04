@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Setup tests for this package."""
 from collective.volto.enhancedlinks.testing import (  # noqa: E501
     COLLECTIVE_VOLTO_ENHANCEDLINKS_INTEGRATION_TESTING,

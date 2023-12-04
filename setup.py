@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Installer for the collective.volto.enhancedlinks package."""
 
 from setuptools import find_packages
@@ -16,7 +15,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.volto.enhancedlinks",
-    version='1.0a1',
+    version="1.0a1",
     description="Enhance Volto text blocks to automatically append file size and mimetype to internal links",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
