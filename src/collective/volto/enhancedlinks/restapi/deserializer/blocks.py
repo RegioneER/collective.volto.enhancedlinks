@@ -19,5 +19,5 @@ class EnhancedLinksDeserializer(SlateBlockTransformer):
         """
         Cleanup data that we don't want to store in db
         """
-        if "enhanced_link_infos" in child:
-            del child["enhanced_link_infos"]
+        if "enhanced_link_infos" in child.get("data", {}):
+            del child["data"]["enhanced_link_infos"]

@@ -71,13 +71,13 @@ class EnhancedLinksSerializer(SlateBlockTransformer):
         """
         Retrieve content_info from a linked File/Image object
         """
-        uid = self.get_uid_from_path(path=child["data"]["url"])
+        uid = self.get_uid_from_path(path=child["data"].get("url", ""))
         if not uid:
             return
         with safe_write(self.request):
             enhanched_infos = get_enhanced_infos(self.context, uid)
         if enhanched_infos:
-            child["enhanced_link_infos"] = enhanched_infos
+            child["data"]["enhanced_link_infos"] = enhanched_infos
 
 
 @instance.memoize
