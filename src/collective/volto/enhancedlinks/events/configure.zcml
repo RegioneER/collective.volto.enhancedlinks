@@ -1,12 +1,18 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="rer.linknormativa.base">
+    i18n_domain="rer.linknormativa.base"
+    >
 
-	<subscriber for = "
-        plone.dexterity.interfaces.IDexterityContent
-        zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-        handler = ".invalidate_cache.invalidate"
-    />
+  <subscriber
+      for="plone.app.contenttypes.interfaces.IFile
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".invalidate_cache.invalidate"
+      />
+  <subscriber
+      for="plone.app.contenttypes.interfaces.IImage
+           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
+      handler=".invalidate_cache.invalidate"
+      />
 
 </configure>

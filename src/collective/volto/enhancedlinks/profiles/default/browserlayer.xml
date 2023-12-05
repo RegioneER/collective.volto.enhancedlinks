@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<layers>
-  <layer
-      name="collective.volto.enhancedlinks"
-      interface="collective.volto.enhancedlinks.interfaces.ICollectiveVoltoEnhancedlinksLayer"
-      />
-</layers>

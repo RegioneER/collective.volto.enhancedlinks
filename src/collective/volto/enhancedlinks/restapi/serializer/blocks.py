@@ -1,5 +1,6 @@
 from contextlib import contextmanager
 from plone.app.uuid.utils import uuidToCatalogBrain
+from plone.dexterity.interfaces import IDexterityContent
 from plone.memoize import instance
 from plone.protect.utils import safeWrite
 from plone.restapi.behaviors import IBlocks
@@ -48,7 +49,7 @@ def _registered_objects(request):
 
 
 @implementer(IBlockFieldSerializationTransformer)
-@adapter(IBlocks, IBrowserRequest)
+@adapter(IDexterityContent, IBrowserRequest)
 class EnhancedLinksSerializer(SlateBlockTransformer):
     order = -1
     block_type = "slate"

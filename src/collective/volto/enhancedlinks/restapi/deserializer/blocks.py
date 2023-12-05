@@ -1,15 +1,15 @@
-from plone.restapi.behaviors import IBlocks
+from plone.dexterity.interfaces import IDexterityContent
+from plone.restapi.deserializer.blocks import SlateBlockTransformer
 from plone.restapi.interfaces import IBlockFieldDeserializationTransformer
 from zope.component import adapter
 from zope.interface import implementer
 from zope.publisher.interfaces.browser import IBrowserRequest
-from plone.restapi.deserializer.blocks import SlateBlockTransformer
 
 import os
 
 
 @implementer(IBlockFieldDeserializationTransformer)
-@adapter(IBlocks, IBrowserRequest)
+@adapter(IDexterityContent, IBrowserRequest)
 class EnhancedLinksDeserializer(SlateBlockTransformer):
     order = 1000
     block_type = "slate"
