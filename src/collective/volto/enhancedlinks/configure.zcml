@@ -8,9 +8,30 @@
 
   <!-- <i18n:registerTranslations directory="locales" /> -->
 
-
   <include package=".events" />
   <include package=".restapi" />
+  <include file="behaviors.zcml" />
 
+  <genericsetup:registerProfile
+      name="default"
+      title="Volto: Enhanced Links"
+      description="Installs the collective.volto.enhancedlinks add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/default"
+      post_handler=".setuphandlers.post_install"
+      />
 
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Volto: Enhanced Links (uninstall)"
+      description="Uninstalls the collective.volto.enhancedlinks add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/uninstall"
+      post_handler=".setuphandlers.uninstall"
+      />
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="collective.volto.enhancedlinks-hiddenprofiles"
+      />
 </configure>

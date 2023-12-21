@@ -1,9 +1,9 @@
+from collective.volto.enhancedlinks.interfaces import IEnhancedLinksEnabled
 from contextlib import contextmanager
-from plone.app.uuid.utils import uuidToCatalogBrain
+from plone import api
 from plone.dexterity.interfaces import IDexterityContent
 from plone.memoize import instance
 from plone.protect.utils import safeWrite
-from plone.restapi.behaviors import IBlocks
 from plone.restapi.deserializer.blocks import SlateBlockTransformer
 from plone.restapi.interfaces import IBlockFieldSerializationTransformer
 from plone.restapi.serializer.utils import RESOLVEUID_RE
@@ -12,7 +12,11 @@ from zope.interface import implementer
 from zope.publisher.interfaces.browser import IBrowserRequest
 
 import itertools
+import logging
 import os
+
+
+logger = logging.getLogger(__name__)
 
 
 # https://github.com/collective/Products.AutoUserMakerPASPlugin/blob/master/Products/AutoUserMakerPASPlugin/auth.py
@@ -87,9 +91,15 @@ def get_enhanced_infos(context, uid):
     This method is cached so we don't have to re-fetch data at every call.
     There is an event handler that invalidate cache when a related item is modified.
     """
-    brain = uuidToCatalogBrain(uid)
-    if brain is None:
+    brains = api.content.find(
+        UID=uid, object_provides=IEnhancedLinksEnabled.__identifier__
+    )
+    if not brains:
         return {}
+    if len(brains) > 1:
+        logger.warning(f'Found multiple brains with the same UID: "${uid}". Skipping.')
+        return {}
+    brain = brains[0]
     if brain.getObjSize == "0 KB":
         # not a link to file/image
         return {}

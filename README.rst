@@ -31,33 +31,18 @@
 collective.volto.enhancedlinks
 ==============================
 
-Enhance Volto text blocks to automatically append file size and mimetype to internal links
+Enhance Volto text blocks to automatically append file size and mimetype to internal links.
 
 Features
 --------
 
-- Can be bullet points
+When you link a content in slate block, if the linked object has `volto.enhanced_links_enabled` behavior enabled,
+an extra data will be appended to the block with its size and mimetype.
 
+By default the behavior is enabled for:
 
-Examples
---------
-
-This add-on can be seen in action at the following sites:
-- Is there a page on the internet where everybody can see the features?
-
-
-Documentation
--------------
-
-Full documentation for end users can be found in the "docs" folder, and is also available online at http://docs.plone.org/foo/bar
-
-
-Translations
-------------
-
-This product has been translated into
-
-- Klingon (thanks, K'Plai)
+- File
+- Image
 
 
 Installation
@@ -76,36 +61,46 @@ Install collective.volto.enhancedlinks by adding it to your buildout::
 and then running ``bin/buildout``
 
 
-Authors
--------
-
-Provided by awesome people ;)
-
-
-Contributors
-------------
-
-Put your name here, you deserve it!
-
-- ?
-
-
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/collective/collective.volto.enhancedlinks/issues
-- Source Code: https://github.com/collective/collective.volto.enhancedlinks
-- Documentation: https://docs.plone.org/foo/bar
+- Issue Tracker: https://github.com/RegioneEr/collective.volto.enhancedlinks/issues
+- Source Code: https://github.com/RegioneEr/collective.volto.enhancedlinks
 
 
-Support
--------
+Compatibility
+-------------
 
-If you are having issues, please let us know.
-We have a mailing list located at: project@example.com
+This product has been tested on:
+
+* Plone 6
 
 
 License
 -------
 
 The project is licensed under the GPLv2.
+
+
+Credits
+-------
+
+Developed with the support of:
+
+* `Regione Emilia Romagna`__
+
+
+Regione Emilia-Romagna supports the `PloneGov initiative`__.
+
+__ http://www.regione.emilia-romagna.it/
+__ http://www.plonegov.it/
+
+
+Authors
+-------
+
+This product was developed by RedTurtle Technology team.
+
+.. image:: http://www.redturtle.it/redturtle_banner.png
+   :alt: RedTurtle Technology Site
+   :target: http://www.redturtle.it/

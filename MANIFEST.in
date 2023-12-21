@@ -1,7 +1,12 @@
-graft src/collective.volto
+graft src/collective/
 graft docs
+include *.cfg
 include *.rst
 exclude tox.ini
 exclude *.txt
 exclude .gitlab-ci.yml
+exclude .coveragerc
 global-exclude *.pyc
+exclude news/.gitkeep
+exclude .installed.cfg
+exclude .mr.developer.cfg
