@@ -1,16 +1,11 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="rer.linknormativa.base"
+    i18n_domain="collective.volto.enhancedlinks"
     >
 
   <subscriber
-      for="plone.app.contenttypes.interfaces.IFile
-           zope.lifecycleevent.interfaces.IObjectModifiedEvent"
-      handler=".invalidate_cache.invalidate"
-      />
-  <subscriber
-      for="plone.app.contenttypes.interfaces.IImage
+      for="collective.volto.enhancedlinks.interfaces.IEnhancedLinksEnabled
            zope.lifecycleevent.interfaces.IObjectModifiedEvent"
       handler=".invalidate_cache.invalidate"
       />
