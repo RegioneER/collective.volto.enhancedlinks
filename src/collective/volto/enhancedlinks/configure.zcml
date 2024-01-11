@@ -34,4 +34,11 @@
       factory=".setuphandlers.HiddenProfiles"
       name="collective.volto.enhancedlinks-hiddenprofiles"
       />
+
+  <!-- indexer -->
+  <adapter
+      factory=".indexer.enhanced_links_enabled"
+      name="enhanced_links_enabled"
+      />
+
 </configure>

@@ -1,4 +1,3 @@
-from collective.volto.enhancedlinks.interfaces import IEnhancedLinksEnabled
 from contextlib import contextmanager
 from plone import api
 from plone.dexterity.interfaces import IDexterityContent
@@ -91,9 +90,7 @@ def get_enhanced_infos(context, uid):
     This method is cached so we don't have to re-fetch data at every call.
     There is an event handler that invalidate cache when a related item is modified.
     """
-    brains = api.content.find(
-        UID=uid, object_provides=IEnhancedLinksEnabled.__identifier__
-    )
+    brains = api.content.find(UID=uid, enhanced_links_enabled=True)
     if not brains:
         return {}
     if len(brains) > 1:
