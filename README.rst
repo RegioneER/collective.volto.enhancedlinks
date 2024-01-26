@@ -31,7 +31,7 @@
 collective.volto.enhancedlinks
 ==============================
 
-Enhance Volto text blocks to automatically append file size and mimetype to internal links.
+Enhance Volto slate blocks to automatically append file size and mimetype to internal links.
 
 Features
 --------

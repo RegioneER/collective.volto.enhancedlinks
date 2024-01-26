@@ -12,6 +12,7 @@
 # tools related
 build/
 .coverage
+.python-version
 .*project
 coverage.xml
 dist/
