@@ -15,7 +15,7 @@ long_description = "\n\n".join(
 
 setup(
     name="collective.volto.enhancedlinks",
-    version="1.0.1",
+    version="1.0.2.dev0",
     description="Enhance Volto text blocks to automatically append file size and mimetype to internal links",
     long_description=long_description,
     # Get more from https://pypi.org/classifiers/
