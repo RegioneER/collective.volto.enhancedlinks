@@ -101,6 +101,6 @@ def get_enhanced_infos(context, uid):
         # not a link to file/image
         return {}
     return {
-        "size": brain.getObjSize,
-        "content-type": brain.mime_type,
+        "getObjSize": brain.getObjSize,
+        "mime_type": brain.mime_type,
     }

@@ -41,4 +41,15 @@
       name="enhanced_links_enabled"
       />
 
+  <!-- Add some default metadata for summary serializer -->
+  <utility
+      factory=".adapters.JSONSummarySerializerMetadata"
+      name="enhancedlinks.summary_serializer_metadata"
+      />
+
+  <adapter
+      factory=".adapters.EnhancedLinksContentListingObject"
+      for="collective.volto.enhancedlinks.interfaces.IEnhancedLinksEnabled"
+      />
+
 </configure>

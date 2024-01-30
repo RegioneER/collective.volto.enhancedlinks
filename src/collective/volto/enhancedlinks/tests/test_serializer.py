@@ -102,10 +102,10 @@ class TestSerializer(unittest.TestCase):
 
         self.assertIn("enhanced_link_infos", block_data)
         self.assertEqual(
-            block_data["enhanced_link_infos"]["content-type"], "application/pdf"
+            block_data["enhanced_link_infos"]["mime_type"], "application/pdf"
         )
         self.assertEqual(
-            block_data["enhanced_link_infos"]["size"], doc_brain.getObjSize
+            block_data["enhanced_link_infos"]["getObjSize"], doc_brain.getObjSize
         )
 
     def test_serializer_with_file_csv(self):
@@ -118,11 +118,11 @@ class TestSerializer(unittest.TestCase):
 
         self.assertIn("enhanced_link_infos", block_data)
         self.assertEqual(
-            block_data["enhanced_link_infos"]["content-type"],
+            block_data["enhanced_link_infos"]["mime_type"],
             "text/comma-separated-values",
         )
         self.assertEqual(
-            block_data["enhanced_link_infos"]["size"], doc_brain.getObjSize
+            block_data["enhanced_link_infos"]["getObjSize"], doc_brain.getObjSize
         )
 
     def test_serializer_with_image(self):
@@ -135,11 +135,11 @@ class TestSerializer(unittest.TestCase):
 
         self.assertIn("enhanced_link_infos", block_data)
         self.assertEqual(
-            block_data["enhanced_link_infos"]["content-type"],
+            block_data["enhanced_link_infos"]["mime_type"],
             "image/jpeg",
         )
         self.assertEqual(
-            block_data["enhanced_link_infos"]["size"], doc_brain.getObjSize
+            block_data["enhanced_link_infos"]["getObjSize"], doc_brain.getObjSize
         )
 
     def test_serializer_does_not_work_without_behavior_enabled(self):
