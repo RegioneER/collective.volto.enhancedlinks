@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.1 (unreleased)
+1.0.1 (2024-01-30)
 ------------------
 
 - Add some default metadata in summary serializer.
