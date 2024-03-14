@@ -5,7 +5,8 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- remove context from memoize key
+  [mamico]
 
 
 1.0.1 (2024-01-30)
