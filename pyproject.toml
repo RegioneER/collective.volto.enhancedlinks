@@ -4,6 +4,45 @@
 [build-system]
 requires = ["setuptools>=68.2"]
 
+[tool.towncrier]
+directory = "news/"
+filename = "CHANGES.md"
+start_string = "<!-- towncrier release notes start -->\n"
+title_format = "## {version} ({project_date})"
+template = "news/.changelog_template.jinja"
+underlines = ["", "", ""]
+issue_format = "[#{issue}](https://github.com/collective/pas.plugins.passwordstrength/issues/{issue})"
+
+[[tool.towncrier.type]]
+directory = "breaking"
+name = "Breaking changes:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "feature"
+name = "New features:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "bugfix"
+name = "Bug fixes:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "internal"
+name = "Internal:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "documentation"
+name = "Documentation:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "tests"
+name = "Tests"
+showcontent = true
+
 ##
 # Add extra configuration options in .meta.toml:
 #  [pyproject]
@@ -35,8 +74,9 @@ target-version = ["py38"]
 ##
 
 [tool.codespell]
-ignore-words-list = "discreet,"
-skip = "*.po,"
+ignore-words-list = "discreet,vew"
+skip = "*.po,*.min.js,*.pot,*.po,*.yaml,*.json"
+# exclude-file = "src/collective/volto/gdprcookie/config.py"
 ##
 # Add extra configuration options in .meta.toml:
 #  [pyproject]
@@ -83,6 +123,8 @@ Zope = [
   'Products.CMFCore', 'Products.CMFDynamicViewFTI',
 ]
 python-dateutil = ['dateutil']
+ignore-packages = ['Products.CMFPlone', 'Products.GenericSetup', 'collective.MockMailHost', 'plone.app.registry', 'plone.restapi', 'plone.testing', 'plone.volto', 'zestreleaser.towncrier', 'zest.releaser', 'pytest', 'pytest-cov', 'pytest-plone', 'pytest-docker', 'pytest-vcr', 'pytest-mock', 'gocept.pytestlayer', 'requests-mock', 'vcrpy','plone.api', 'plone.app.contentlisting', 'plone.app.linkintegrity', 'plone.behavior', 'plone.dexterity', 'plone.indexer', 'plone.memoize', 'plone.protect', 'plone.app.uuid', 'plone.namedfile']
+Plone = ['Products.CMFPlone', 'Products.CMFCore', 'Products.GenericSetup', 'Products.PluggableAuthService', 'Products.PlonePAS']
 
 ##
 # Add extra configuration options in .meta.toml:
@@ -102,6 +144,9 @@ ignore = [
     "tox.ini",
     ".flake8",
     "mx.ini",
+    "news/*",
+    "constraints-mxdev.txt",
+    "requirements-mxdev.txt",
 
 ]
 ##
@@ -113,6 +158,12 @@ ignore = [
 #  """
 ##
 
+[tool.coverage.run]
+omit = ["*/locales/*"]
+
+[tool.bandit]
+targets = "src"
+exclude_dirs = ["tests", "src/pas/plugins/passwordstrength/locales"]
 
 ##
 # Add extra configuration options in .meta.toml:
