@@ -78,13 +78,13 @@ class EnhancedLinksSerializer(SlateBlockTransformer):
         if not uid:
             return
         with safe_write(self.request):
-            enhanched_infos = get_enhanced_infos(self.context, uid)
+            enhanched_infos = get_enhanced_infos(uid)
         if enhanched_infos:
             child["data"]["enhanced_link_infos"] = enhanched_infos
 
 
 @instance.memoize
-def get_enhanced_infos(context, uid):
+def get_enhanced_infos(uid):
     """
     Extract metadata from brain.
     This method is cached so we don't have to re-fetch data at every call.
