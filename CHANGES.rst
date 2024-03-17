@@ -5,7 +5,7 @@ Changelog
 1.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add tool to manage infos, removed memoize machinery
 
 
 1.0.1 (2024-01-30)

@@ -11,6 +11,7 @@
   <include package=".events" />
   <include package=".restapi" />
   <include file="behaviors.zcml" />
+  <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
       name="default"

@@ -33,7 +33,9 @@ class EnhancedLinksTool(UniqueObject, SimpleItem):
         else:
             info = _miss
         if info is _miss:
-            brains = api.content.find(UID=uid, enhanced_links_enabled=True)
+            brains = api.content.find(
+                UID=uid, enhanced_links_enabled=True, unrestricted=True
+            )
             if not brains:
                 info = {}
             else:
