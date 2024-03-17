@@ -6,7 +6,7 @@
   <genericsetup:upgradeStep
       title="Add enhanced links tool"
       description=""
-      profile="rer.solrpush:default"
+      profile="collective.volto.enhancedlinks:default"
       source="1000"
       destination="1001"
       handler=".upgrades.to_1001"
