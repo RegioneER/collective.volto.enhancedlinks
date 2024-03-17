@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
-from plone import api
 from Acquisition import aq_base
+from plone import api
 
 
 default_profile = "collective.volto.enhancedlinks:default"

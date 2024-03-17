@@ -3,4 +3,4 @@
   <required class="collective.volto.enhancedlinks.tool.EnhancedLinksTool"
             tool_id="portal_enhancedlinks"
   />
-  </tool-setup>
+</tool-setup>

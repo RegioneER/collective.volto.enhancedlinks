@@ -55,10 +55,8 @@ setup(
     install_requires=[
         "setuptools",
         "Plone",
-        "plone.volto",
         "plone.api",
-        "Products.CMFCore",
-        "Products.CMFPlone",
+        "plone.volto",
     ],
     extras_require={
         "test": [
