@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0.2 (unreleased)
+1.1.0 (2024-03-18)
 ------------------
 
 - Add tool to manage infos, removed memoize machinery
