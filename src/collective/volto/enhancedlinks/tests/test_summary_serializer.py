@@ -1,4 +1,5 @@
 """Setup tests for this package."""
+
 from collective.volto.enhancedlinks.testing import RESTAPI_TESTING
 from plone import api
 from plone.app.testing import setRoles

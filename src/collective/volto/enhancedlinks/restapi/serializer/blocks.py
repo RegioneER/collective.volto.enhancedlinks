@@ -1,7 +1,6 @@
 from contextlib import contextmanager
 from plone import api
 from plone.dexterity.interfaces import IDexterityContent
-from plone.memoize import instance
 from plone.protect.utils import safeWrite
 from plone.restapi.deserializer.blocks import SlateBlockTransformer
 from plone.restapi.interfaces import IBlockFieldSerializationTransformer
@@ -77,30 +76,8 @@ class EnhancedLinksSerializer(SlateBlockTransformer):
         uid = self.get_uid_from_path(path=child["data"].get("url", ""))
         if not uid:
             return
+        tool = api.portal.get_tool("portal_enhancedlinks")
         with safe_write(self.request):
-            enhanched_infos = get_enhanced_infos(self.context, uid)
+            enhanched_infos = tool.get_enhanced_link(uid)
         if enhanched_infos:
             child["data"]["enhanced_link_infos"] = enhanched_infos
-
-
-@instance.memoize
-def get_enhanced_infos(context, uid):
-    """
-    Extract metadata from brain.
-    This method is cached so we don't have to re-fetch data at every call.
-    There is an event handler that invalidate cache when a related item is modified.
-    """
-    brains = api.content.find(UID=uid, enhanced_links_enabled=True)
-    if not brains:
-        return {}
-    if len(brains) > 1:
-        logger.warning(f'Found multiple brains with the same UID: "${uid}". Skipping.')
-        return {}
-    brain = brains[0]
-    if brain.getObjSize == "0 KB":
-        # not a link to file/image
-        return {}
-    return {
-        "getObjSize": brain.getObjSize,
-        "mime_type": brain.mime_type,
-    }

@@ -1,4 +1,5 @@
 """Setup tests for this package."""
+
 from collective.volto.enhancedlinks.testing import RESTAPI_TESTING
 from plone import api
 from plone.app.testing import setRoles
@@ -95,7 +96,6 @@ class TestSerializer(unittest.TestCase):
     def test_serializer_with_file_pdf(self):
         doc = self.create_document_with_link(uid=self.pdf.UID())
         doc_brain = api.content.find(UID=self.pdf.UID())[0]
-
         serializer = getMultiAdapter((doc, self.request), ISerializeToJson)
         block = list(serializer()["blocks"].values())[0]
         block_data = block["value"][0]["children"][1]["data"]
