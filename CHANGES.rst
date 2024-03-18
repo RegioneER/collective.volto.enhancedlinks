@@ -6,7 +6,7 @@ Changelog
 ------------------
 
 - Add tool to manage infos, removed memoize machinery
-
+  [mamico]
 
 1.0.1 (2024-01-30)
 ------------------
