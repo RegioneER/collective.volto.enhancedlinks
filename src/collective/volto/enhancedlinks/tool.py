@@ -50,7 +50,7 @@ class EnhancedLinksTool(UniqueObject, SimpleItem):
                         "getObjSize": brain.getObjSize,
                         "mime_type": brain.mime_type,
                     }
-        self._enhanced_links[uid] = info
+            self._enhanced_links[uid] = info
         return info
 
 
