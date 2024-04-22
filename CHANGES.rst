@@ -5,7 +5,8 @@ Changelog
 1.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Prevent write-on-read to each tool call.
+  [cekk]
 
 
 1.1.0 (2024-03-18)
