@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.1.1 (unreleased)
+1.1.1 (2024-04-24)
 ------------------
 
 - Prevent write-on-read to each tool call.
